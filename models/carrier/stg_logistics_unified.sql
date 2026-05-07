@@ -1,0 +1,1 @@
+select * from newegg-surcharge.raw_carrier_shipping.ups_invoice;
