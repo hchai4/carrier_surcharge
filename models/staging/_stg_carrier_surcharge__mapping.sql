@@ -1,0 +1,1 @@
+select * from carrier-surcharge.raw.surcharge_mapping
