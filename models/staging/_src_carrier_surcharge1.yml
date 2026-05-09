@@ -1,9 +1,0 @@
-version: 2
-
-sources:
-  - name: raw
-    tables:
-      - name: shipping_history
-      - name: surcharge_mapping
-      - name: ups_invoice
-      - name: weekly_surcharge_tiers
