@@ -1,0 +1,9 @@
+sources:
+  - name: carrier_surcharge
+    database: raw
+    schema: carrier_surcharge
+    tables:
+      - name: mapping
+      - name: shipping_history
+      - name: ups_invoice
+      - name: weekly_surcharge_tiers

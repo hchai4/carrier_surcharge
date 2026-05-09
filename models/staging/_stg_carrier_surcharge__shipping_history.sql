@@ -1,1 +1,1 @@
-select * from carrier-surcharge.raw.dbs_shipping_history
+select * from carrier-surcharge.raw.shipping_history
