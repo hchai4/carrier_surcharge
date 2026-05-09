@@ -1,1 +1,0 @@
-select * from {{ source('carrier_surcharge', 'shipping_history') }}

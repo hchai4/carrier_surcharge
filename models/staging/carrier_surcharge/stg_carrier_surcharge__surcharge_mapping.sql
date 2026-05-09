@@ -9,8 +9,8 @@ source as (
 renamed as (
 
     select
-        string_field_0,
-        string_field_1
+        Charge_Description as charge_description,
+        Charge_Code as charge_code
 
     from source
 
