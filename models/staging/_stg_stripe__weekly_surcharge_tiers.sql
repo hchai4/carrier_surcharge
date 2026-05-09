@@ -1,1 +1,0 @@
-select * from carrier-surcharge.raw.weekly_surcharge_tiers

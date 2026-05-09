@@ -1,0 +1,1 @@
+select * from {{ source('carrier_surcharge', 'weekly_surcharge_tiers') }}

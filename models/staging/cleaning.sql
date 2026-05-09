@@ -98,3 +98,5 @@ validated as (
 )
 
 select * from validated
+
+

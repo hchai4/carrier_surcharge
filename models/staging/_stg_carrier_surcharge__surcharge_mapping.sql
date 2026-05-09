@@ -1,0 +1,1 @@
+select * from {{ source('carrier_surcharge', 'surcharge_mapping') }}
