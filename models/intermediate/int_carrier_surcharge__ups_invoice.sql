@@ -10,7 +10,7 @@ adjusted as (
     select
         case
             when charge_description_code = 'PRI'
-                and date_sub(invoice_date, interval 3 week) >= '2025-10-16'
+                and date_sub(invoice_date, interval 3 week) >= '2025-10-26'
             then date_sub(invoice_date, interval 3 week)
             else invoice_date
         end as invoice_date,

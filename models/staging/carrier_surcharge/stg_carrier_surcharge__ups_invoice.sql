@@ -10,7 +10,7 @@ timefilt as (
 
     select *
     from source
-    where Invoice_Date >= '2025-10-16'
+    where Invoice_Date >= '2025-10-26'
 
 ),
 
