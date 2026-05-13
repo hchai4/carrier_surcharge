@@ -18,8 +18,16 @@ renamed as (
         nullif(trim(ShippingCarrierType), '')  as shipping_carrier_type,
         CreateTime                             as create_time,
         date(CreateTime)                       as create_date,
-        concat('week', cast(extract(week  from CreateTime) as string)) as create_week,
-        cast(extract(year from CreateTime) as string)                  as create_year,
+        case
+            when date(CreateTime) between '2025-12-28' and '2026-01-03'
+                then 'week52'
+            else concat('week', cast(extract(week from CreateTime) as string))
+        end as create_week,
+        case
+            when date(CreateTime) between '2025-12-28' and '2026-01-03'
+                then '2025'
+            else cast(extract(year from CreateTime) as string)
+        end as create_year,
 
         case when date(CreateTime) in (
             '2025-11-29', '2025-11-30',
@@ -37,13 +45,13 @@ validated as (
     from renamed
     where
         service_type is not null
-        and address_type is not null 
+        and address_type is not null
         and warehouse_number is not null
         and tracking_number is not null
         and status in ('Y', 'N')
         and shipping_carrier_type is not null 
-        and create_time >= '2025-10-01'
-        and create_time <  '2026-04-01'
+        and date(create_time) >= '2025-10-16'
+        and date(create_time) <  '2026-01-17'
 
 )
 

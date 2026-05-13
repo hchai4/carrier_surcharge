@@ -76,7 +76,7 @@ weekly_counts as (
 
     from filtered
     group by create_year, create_week
-
+    order by create_year, create_week
 )
 
 select * from weekly_counts
