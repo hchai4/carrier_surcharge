@@ -1,6 +1,4 @@
-with 
-
-source as (
+with source as (
 
     select * from {{ ref('stg_carrier_surcharge__ups_invoice') }}
 
@@ -52,11 +50,12 @@ summary as (
 
     select invoice_year,
            invoice_week,
-           sum(net_amount) as total_amount
+           round(sum(net_amount), 2) as total_amount
     from renamed
     group by invoice_year, invoice_week
+
 )
 
 
 
-select * from summary;
+select * from summary
