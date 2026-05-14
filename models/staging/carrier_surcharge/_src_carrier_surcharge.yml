@@ -1,0 +1,9 @@
+models:
+  - name: stg_carrier_surcharge__price_table
+  - name: stg_carrier_surcharge__shipping_history
+    columns:
+      - name: tracking_number
+        tests: 
+          - unique
+          - not_null
+  - name: stg_carrier_surcharge__ups_invoice
