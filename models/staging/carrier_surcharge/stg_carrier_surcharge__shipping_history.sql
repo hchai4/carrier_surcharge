@@ -49,7 +49,7 @@ validated as (
         and warehouse_number is not null
         and tracking_number is not null
         and status in ('Y', 'N')
-        and shipping_carrier_type is not null 
+        and shipping_carrier_type is not null
         and date(create_time) >= '2025-10-26'
         and date(create_time) <  '2026-01-17'
 

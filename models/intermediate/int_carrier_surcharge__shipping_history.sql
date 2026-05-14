@@ -22,7 +22,8 @@ weekly_counts as (
     select
         create_year,
         create_week,
-
+        min(create_date) as week_start_date,
+        
         -- 1. Ground Residential
         countif(
             service_type = '038-UPS Ground'
