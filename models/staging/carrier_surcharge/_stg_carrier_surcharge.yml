@@ -1,9 +1,59 @@
 models:
   - name: stg_carrier_surcharge__price_table
+    columns:
+      - name: service_type
+        tests: 
+          - accepted_values:
+              arguments:
+                values: 
+                  - Ground Residential
+                  - Next Day Air Residential
+                  - Next Day Air Commercial
+                  - Other Express Residential
+                  - Other Express Commercial
+
   - name: stg_carrier_surcharge__shipping_history
     columns:
       - name: tracking_number
         tests:
-        - unique
-        - not_null
+          - unique
+          - not_null
+      - name: service_type
+        tests: 
+          - accepted_values:
+              arguments:
+                values: 
+                  - Ground Residential
+                  - Next Day Air Residential
+                  - Next Day Air Commercial
+                  - Other Express Residential
+                  - Other Express Commercial
+      - name: address_type
+        tests: 
+          - accepted_values:
+              arguments:
+                values: 
+                  - R
+                  - C
+      - name: status
+        tests: 
+          - accepted_values:
+              arguments:
+                values: 
+                  - Y
+                  - N
+      - name: shipping_carrier_type
+        tests: 
+          - accepted_values:
+              arguments:
+                values: 
+                  - UPS
+                  - Fedex
+                  - USPS
+
   - name: stg_carrier_surcharge__ups_invoice
+    columns:
+      - name: invoice_number
+        tests:
+          - unique
+          - not_null
