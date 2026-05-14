@@ -63,9 +63,10 @@ weekly_cost as (
     select create_year,
            create_week,
            week_start_date,
-           sum(total_cost_usd) as total_cost
+           round(sum(total_cost_usd), 2) as total_cost
     from with_price
     group by create_year, create_week, week_start_date
+    order by create_year, create_week
 )
 
 select * from weekly_cost

@@ -8,6 +8,7 @@ with source as (
 adjusted as (
 
     select
+        invoice_number,
         case
             when charge_description_code = 'PRI'
                 and date_sub(invoice_date, interval 3 week) >= '2025-10-26'
@@ -24,7 +25,8 @@ adjusted as (
 renamed as (
 
     select
-        Invoice_Date as invoice_date,
+        invoice_number,
+        invoice_date,
         -- Business rule 1: Dec 28 – Jan 2 always = week52
         -- Business rule 2: PRI rows use date 3 weeks earlier
         case
@@ -48,7 +50,8 @@ renamed as (
 -- Step 3 do amount summary for each week
 summary as (
 
-    select invoice_year,
+    select 
+           invoice_year,
            invoice_week,
            round(sum(net_amount), 2) as total_amount
     from renamed

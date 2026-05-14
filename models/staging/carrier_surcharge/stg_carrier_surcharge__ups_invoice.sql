@@ -17,7 +17,8 @@ timefilt as (
 renamed as (
 
     select
-        Invoice_Date as Invoice_Date,
+        Invoice_Number as invoice_number,
+        Invoice_Date as invoice_date,
      -- Custom rule: Dec 28 2025 – Jan 2 2026 → week52 of 2025
         case
             when Invoice_Date between '2025-12-28' and '2026-01-03'
