@@ -4,12 +4,21 @@ with source as (
 
 ),
 
+dedup as (
+    select *
+    from source
+    qualify row_number() over (
+        partition by TrackingNumber
+        order by CreateTime desc  -- pick the most recent
+    ) = 1
+),
+
 renamed as (
 
     select
         nullif(trim(ServiceType), '')          as service_type,
         nullif(trim(AddressType), '')          as address_type,
-        trim(TrackingNumber)                   as tracking_number,
+        trim(TrackingNumber)          as tracking_number,
         nullif(trim(warehousenumber), '')      as warehouse_number,
 
         -- status is BOOLEAN in BQ (Y/N auto-detected as true/false)
@@ -35,7 +44,7 @@ renamed as (
             '2026-01-03', '2026-01-04'
         ) then true else false end             as is_holiday_weekend
 
-    from source
+    from dedup
 
 ),
 

@@ -1,9 +1,10 @@
-models:
-  - name: stg_carrier_surcharge__price_table
-  - name: stg_carrier_surcharge__shipping_history
-    columns:
-      - name: tracking_number
-        tests: 
-          - unique
-          - not_null
-  - name: stg_carrier_surcharge__ups_invoice
+sources:
+  - name: carrier_surcharge
+    database: carrier-surcharge
+    schema: raw
+    tables:
+      - name: surcharge_mapping
+      - name: shipping_history
+      - name: ups_invoice
+      - name: weekly_surcharge_tiers
+      - name: price_table

@@ -6,6 +6,4 @@ models:
         tests:
         - unique
         - not_null
-
-    
   - name: stg_carrier_surcharge__ups_invoice
