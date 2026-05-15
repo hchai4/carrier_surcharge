@@ -5,5 +5,17 @@ sources:
     tables:
       - name: surcharge_mapping
       - name: shipping_history
+        columns:
+          - name: TrackingNumber
+            tests:
+              - unique
+              - not_null
+
       - name: ups_invoice
+        columns:
+          - name: Invoice_Number
+            tests:
+              - unique
+              - not_null
+              
       - name: price_table
