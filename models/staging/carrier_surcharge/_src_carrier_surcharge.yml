@@ -6,5 +6,4 @@ sources:
       - name: surcharge_mapping
       - name: shipping_history
       - name: ups_invoice
-      - name: weekly_surcharge_tiers
       - name: price_table
