@@ -17,5 +17,5 @@ sources:
             tests:
               - unique
               - not_null
-              
+
       - name: price_table
