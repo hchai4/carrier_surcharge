@@ -1,5 +1,6 @@
 models:
   - name: stg_carrier_surcharge__price_table
+    description: the price table of every service levels for different period
     columns:
       - name: service_type
         tests: 
@@ -13,8 +14,10 @@ models:
                   - Other Express Commercial
 
   - name: stg_carrier_surcharge__shipping_history
+    description: info for every unique tracking number including projection cost
     columns:
       - name: tracking_number
+        description: primary key for shipping history table
         tests:
           - unique
           - not_null
@@ -53,8 +56,10 @@ models:
                   - USPS
 
   - name: stg_carrier_surcharge__ups_invoice
+    description: carrier surcharge invoice for all charging types of every peak season week
     columns:
       - name: invoice_number
+        description: primary key for this carrier invoice table
         tests:
           - unique
           - not_null

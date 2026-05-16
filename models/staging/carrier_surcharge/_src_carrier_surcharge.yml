@@ -1,12 +1,15 @@
 sources:
   - name: carrier_surcharge
+    description: get from bigquery by getting replica
     database: carrier-surcharge
     schema: raw
     tables:
       - name: surcharge_mapping
       - name: shipping_history
+        description: one tracking number per row
         columns:
           - name: TrackingNumber
+            description: primary key of this shipping history table
             tests:
               - unique
               - not_null
