@@ -3,6 +3,7 @@ models:
     description: the price table of every service levels for different period
     columns:
       - name: service_type
+        description: "{{ doc('service_type_price_table') }}"
         tests: 
           - accepted_values:
               arguments:
@@ -22,6 +23,7 @@ models:
           - unique
           - not_null
       - name: service_type
+        description: "{{ doc('service_type_shipping_history') }}"
         tests: 
           - accepted_values:
               arguments:
@@ -33,6 +35,7 @@ models:
                   - 055-UPS Next Day Air-UPS Next Day Air
 
       - name: address_type
+        description: "{{ doc('address_type_shipping_history') }}"
         tests: 
           - accepted_values:
               arguments:
@@ -40,6 +43,7 @@ models:
                   - R
                   - C
       - name: status
+        description: "{{ ('status_shipping_history') }}"
         tests: 
           - accepted_values:
               arguments:
