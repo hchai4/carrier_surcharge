@@ -1,24 +1,27 @@
 sources:
   - name: carrier_surcharge
-    description: get from bigquery by getting replica
     database: carrier-surcharge
     schema: raw
+    description: Get from bigquery by getting replica
     tables:
       - name: surcharge_mapping
       - name: shipping_history
-        description: one tracking number per row
+        description: Raw shipping record
         columns:
           - name: TrackingNumber
-            description: primary key of this shipping history table
+            description: Primary key of this shipping history table
             tests:
               - unique
               - not_null
 
       - name: ups_invoice
+        description: Raw carrier invoice data
         columns:
           - name: Invoice_Number
+            description: Pimary key for invoice data
             tests:
               - unique
               - not_null
 
       - name: price_table
+        description: Raw price rate
