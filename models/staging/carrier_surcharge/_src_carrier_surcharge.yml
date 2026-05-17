@@ -1,3 +1,5 @@
+version: 2
+
 sources:
   - name: carrier_surcharge
     database: carrier-surcharge
@@ -8,6 +10,15 @@ sources:
       - name: surcharge_mapping
 
       - name: shipping_history
+        config:
+          loaded_at_field: CreateTime
+          freshness:
+              warn_after:
+                count: 1
+                period: hour
+              error_after: 
+                count: 2
+                period: hour
         columns:
           - name: TrackingNumber
             description: Primary key of this shipping history table
@@ -15,6 +26,15 @@ sources:
               - not_null
 
       - name: ups_invoice
+        config:
+          loaded_at_field: CreateTime
+          freshness:
+              warn_after:
+                count: 1
+                period: hour
+              error_after: 
+                count: 2
+                period: hour
         description: Raw carrier invoice data
         columns:
           - name: Invoice_Number
