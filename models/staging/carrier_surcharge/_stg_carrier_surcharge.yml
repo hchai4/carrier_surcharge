@@ -1,0 +1,69 @@
+models:
+  - name: stg_carrier_surcharge__price_table
+    description: the price table of every service levels for different period
+    columns:
+      - name: service_type
+        description: "{{ doc('service_type_price_table') }}"
+        tests: 
+          - accepted_values:
+              arguments:
+                values: 
+                  - Ground Residential
+                  - Next Day Air Residential
+                  - Next Day Air Commercial
+                  - Other Express Residential
+                  - Other Express Commercial
+
+  - name: stg_carrier_surcharge__shipping_history
+    description: info for every unique tracking number including projection cost
+    columns:
+      - name: tracking_number
+        description: primary key for shipping history table
+        tests:
+          - unique
+          - not_null
+      - name: service_type
+        description: "{{ doc('service_type_shipping_history') }}"
+        tests: 
+          - accepted_values:
+              arguments:
+                values: 
+                  - 014-UPS 3 days-UPS Other Express
+                  - 038-UPS Ground
+                  - 039-UPS 2nd Day-UPS Other Express
+                  - 040-UPS Next Day saver-UPS Next Day Air
+                  - 055-UPS Next Day Air-UPS Next Day Air
+
+      - name: address_type
+        description: "{{ doc('address_type_shipping_history') }}"
+        tests: 
+          - accepted_values:
+              arguments:
+                values: 
+                  - R
+                  - C
+      - name: status
+        description: "{{ ('status_shipping_history') }}"
+        tests: 
+          - accepted_values:
+              arguments:
+                values: 
+                  - Y
+                  - N
+      - name: shipping_carrier_type
+        tests: 
+          - accepted_values:
+              arguments:
+                values: 
+                  - UPS
+                  - Fedex
+                  - USPS
+
+  - name: stg_carrier_surcharge__ups_invoice
+    description: carrier surcharge invoice for all charging types of every peak season week
+    columns:
+      - name: invoice_number
+        description: primary key for this carrier invoice table
+        tests:
+          - unique
+          - not_null
