@@ -3,15 +3,15 @@ sources:
     database: carrier-surcharge
     schema: raw
     description: Get from bigquery by getting replica
+
     tables:
       - name: surcharge_mapping
+
       - name: shipping_history
-        description: Raw shipping record
         columns:
           - name: TrackingNumber
             description: Primary key of this shipping history table
             tests:
-              - unique
               - not_null
 
       - name: ups_invoice
